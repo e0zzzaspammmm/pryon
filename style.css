@@ -83,7 +83,7 @@ textarea:focus-visible {
   letter-spacing: -1.5px;
   line-height: 1;
   transform: rotate(-5deg);
-  box-shadow: 5px 5px 0 #fff;
+  box-shadow: 5px 5px 0 #171717;
 }
 .logo h1 {
   margin: 0;
