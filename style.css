@@ -789,3 +789,19 @@ html[data-theme="dark"] .logo-icon {
 html[data-theme="dark"] .eyebrow { color: #b5aaff; }
 html[data-theme="dark"] .result-banner.scam,
 html[data-theme="dark"] .result-banner.legit { color: #fff; }
+
+html:not([data-theme="dark"]) .logo-icon {
+  box-shadow: 6px 6px 0 #171717 !important;
+}
+html[data-theme="dark"] .logo-icon {
+  box-shadow: 6px 6px 0 #ffffff !important;
+}
+@media (max-width: 600px) {
+  html:not([data-theme="dark"]) .logo-icon {
+    box-shadow: 4px 4px 0 #171717 !important;
+  }
+  html[data-theme="dark"] .logo-icon {
+    box-shadow: 4px 4px 0 #ffffff !important;
+  }
+}
+
