@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101127">
+  <script>
+  const saved = localStorage.getItem("pryon-theme");
+  const dark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  document.documentElement.dataset.theme =
+    saved === "dark" || saved === "light"
+      ? saved
+      : dark ? "dark" : "light";
+</script>
+  <title>PryOn | Detektor podvodných SMS</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon">&lt;P&gt;</div>
+
+        <div>
+          <h1>PryOn<span>.</span></h1>
+          <p>SMS DETECTOR</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Prepnúť farebný režim"
+          aria-pressed="false"
+        >
+          <span id="themeIcon" aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="eyebrow">EXPERIMENTÁLNY KLASIFIKÁTOR</span>
+
+        <h2>Je táto SMS <span>podvod?</span></h2>
+        <p>
+          Vlož text správy a zisti, ako ju vyhodnotí pravidlový
+          algoritmus&nbsp;PryOn
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-heading">
+          <div>
+            <h3>Analyzovať SMS</h3>
+            <p>Napíš vlastnú správu alebo vyskúšaj náhodnú</p>
+          </div>
+        </div>
+
+        <label for="smsInput">TEXT SPRÁVY</label>
+
+        <textarea
+          id="smsInput"
+          placeholder="Sem napíš alebo vlož text SMS..."
+          maxlength="2000"
+        ></textarea>
+
+        <div class="textarea-footer">
+          <span>Správy sa nikam neodosielajú.</span>
+          <span id="charCount">0 / 2000</span>
+        </div>
+
+        <div class="buttons">
+          <button id="randomBtn" class="button-secondary" type="button">
+            🎲 Náhodná SMS
+          </button>
+
+          <button id="analyzeBtn" class="button-primary" type="button">
+            Analyzovať →
+          </button>
+        </div>
+
+        <p id="errorMessage" class="error" hidden>
+          Najprv zadaj text SMS.
+        </p>
+      </section>
+
+      <section id="resultSection" class="card result-card" hidden>
+        <div class="section-heading">
+          <div>
+            <h3>Výsledok analýzy</h3>
+            <p>Takto správu vyhodnotil PryOn.</p>
+          </div>
+        </div>
+
+        <div id="resultBanner" class="result-banner">
+          <div>
+            <span class="result-label">KLASIFIKÁCIA</span>
+            <h4 id="resultTitle">SCAM</h4>
+            <p id="resultDescription"></p>
+          </div>
+
+          <span id="resultIcon" class="result-icon">!</span>
+        </div>
+
+        <div class="score-box">
+          <span>Celkové skóre</span>
+          <strong id="scoreValue">0 bodov</strong>
+        </div>
+
+        <div class="details">
+          <h4>Nájdené znaky</h4>
+          <div id="categoriesList" class="tags"></div>
+        </div>
+
+        <div class="details">
+          <h4>Prečo algoritmus rozhodol takto?</h4>
+          <ul id="reasonsList"></ul>
+        </div>
+
+        <div id="exampleAnswer" class="example-answer" hidden>
+          <strong>Ukážková SMS:</strong>
+          <p id="exampleAnswerText"></p>
+        </div>
+
+        <button id="resetBtn" class="button-secondary reset-button" type="button">
+          Analyzovať ďalšiu SMS
+        </button>
+      </section>
+
+      <section class="info-card">
+        <span class="info-icon">ⓘ</span>
+
+        <div>
+          <h3>Dôležité upozornenie</h3>
+
+          <p>
+            PryOn je experimentálny pravidlový algoritmus.
+            Výsledok LEGIT <strong>nezaručuje</strong>,
+            že je správa bezpečná.
+            Pri podozrivých SMS <b>nikdy</b> neklikaj na neznáme odkazy
+            a nezadávaj citlivé údaje.
+          </p>
+        </div>
+      </section>
+    </main>
+</body>
+
+    <footer>
+      <p>PryOn © 2026 · Študentský projekt</p>
+      <p>Vytvorené pre súťaž ako doplnok</p>
+    </footer>
+
+</html>
